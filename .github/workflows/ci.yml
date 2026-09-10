@@ -30,6 +30,9 @@ jobs:
         working-directory: client
         run: npm run build
 
+      - name: Build client docker image
+        run: docker build -t my-client ./client
+
   server:
     runs-on: ubuntu-latest
 
@@ -49,3 +52,6 @@ jobs:
       - name: Build server
         working-directory: server
         run: npm run build
+
+      - name: Build server docker image
+        run: docker build -t my-server ./server
